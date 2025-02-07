@@ -20,7 +20,7 @@ const script2 = `
         tid = TID
         title_version = VERSION if VERSION != -1 else None
         wiiu_nus_enabled = True
-        endpoint_override = "http://localhost:8000/proxy?url=http://ccs.cdn.wup.shop.nintendo.net/ccs/download/"
+        endpoint_override = "https://proxy.beta.nusget.ninjacheetah.dev/proxy?url=http://ccs.cdn.wup.shop.nintendo.net/ccs/download/"
     
         # Download the title from the NUS. This is done "manually" (as opposed to using download_title()) so that we can
         # provide verbose output.
