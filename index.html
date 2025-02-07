@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="/assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.27.2/full/pyodide.js"></script>
+    <script src="/scripts/main.js" type="module"></script>
+    <title>NUSGet Web</title>
+</head>
+<body style="width: 100%; height: 100%" class="container">
+    <div style="justify-content: center; display: flex; align-items: center;" class="mt-5 mb-5">
+        <div class="row" style="justify-content: center; display: flex; align-items: center;">
+            <div class="col-auto">
+                <img alt="An icon featuring a downward facing arrow with the text &quot;NUSG&quot; across the bottom." src="/assets/NUSGet-Web.png" style="max-height: 150px; max-width: 150px;"/>
+            </div>
+            <div class="col-auto">
+                <h1 style="font-weight: bold">NUSGet Web Beta<span style="font-size: 12px; font-weight: bolder; color: dimgray;">v1.0</span></h1>
+                <p>WASM Client Side Test</p>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="row mb-3">
+            <div class="col-auto">
+                <label for="tid-entry" class="col-form-label">Title ID</label>
+                <input type="text" class="form-control" id="tid-entry" aria-describedby="tid-help">
+                <div id="tid-help" class="form-text">Title IDs must be formatted as 8 hex bytes, not 4 ASCII characters.</div>
+            </div>
+            <div class="col-auto">
+                <label for="ver-entry" class="col-form-label">Version</label>
+                <input type="number" class="form-control" id="ver-entry" aria-describedby="ver-help">
+                <div id="ver-help" class="form-text">Leave this box blank to download the latest version.</div>
+            </div>
+            <div class="col-auto">
+                <label for="consoles" class="col-form-label">Console</label>
+                <select id="consoles" class="form-select" disabled>
+                    <option value="wii" selected>Wii</option>
+                    <option value="vwii">vWii</option>
+                    <option value="dsi">DSi</option>
+                </select>
+            </div>
+            <div class="col-auto">
+                <label class="col-form-label">Download Format</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="format" id="wad" value="wad" checked>
+                    <label class="form-check-label" for="wad">Installable Archive (WAD/TAD)</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="format" id="enc" value="enc" disabled>
+                    <label class="form-check-label" for="enc">Encrypted Contents</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="format" id="dec" value="dec" disabled>
+                    <label class="form-check-label" for="dec">Decrypted Contents</label>
+                </div>
+                <div id="format-help" class="form-text">Contents will be downloaded as a ZIP file.</div>
+            </div>
+        </div>
+        <div class="row align-items-center mb-3">
+            <div class="col-auto">
+                <button id="download-btn" class="btn btn-primary">Start Download</button>
+            </div>
+            <div class="col-auto">
+                <span id="status-text"></span>
+            </div>
+        </div>
+        <div class="row align-items-center">
+            <div class="col">
+                <div style="overflow-y: scroll; min-width: 50%; max-width: 50%; min-height: 200px; max-height: 200px; border: 1px solid black;">
+                    <p id="download-log"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
